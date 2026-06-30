@@ -26,3 +26,26 @@ console.log(k); //trueになる
 
 
 //大小型「<, >, <=, >=」
+
+//number
+
+a = 2 > 10; //false
+b = 1 < 20; //true
+
+c = 18;
+d = 21;
+console.log(c <= 20); // true 20以下の数字がtrue
+console.log(d <= 20); // false 
+
+e = 18;
+f = 21;
+console.log(e >= 20); // false 20以上の数字がfalse
+console.log(f >= 20); // true 20以下の数字がtrue
+
+
+//string (文字列)
+//文字のunicodeの規格で判断する
+//頭文字だけを読込　2：50　1：49
+
+let num = "2" > "1000";
+console.log(num); //true 
