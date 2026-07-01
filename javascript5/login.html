@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        max-width: 480px;
+        margin: 40px;
+        padding: 100px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      input,
+      button {
+        margin: 8px;
+        padding: 8px;
+        margin-left: 150px;
+        align-items: center;
+      }
+    </style>
+
+    <title>ログイン</title>
+  </head>
+  <body>
+    <h1>ログイン</h1>
+
+    <input id="user" placeholder="ユーザー名" />
+    <input id="pass" type="password" placeholder="パスワード" />
+    <button id="loginBtn">ログイン</button>
+
+    <div id="result"></div>
+
+    <script>
+      const users = [
+        { name: "user1", password: "pass1", active: true },
+        { name: "user2", password: "pass2", active: false },
+      ];
+
+      document
+        .getElementById("loginBtn")
+        .addEventListener("click", function () {
+          const u = document.getElementById("user").value;
+          const p = document.getElementById("pass").value;
+          const res = document.getElementById("result");
+
+          const user = users.find((x) => x.name === u);
+
+          if (!user) {
+            res.textContent = "ユーザーが存在しません";
+            return;
+          }
+
+          if (!user.active) {
+            res.textContent = "ユーザーが無効です";
+            return;
+          }
+          if (user.password === p) {
+            res.textContent = "ログイン成功";
+          } else {
+            res.textContent = "パスワードが違います";
+          }
+        });
+    </script>
+  </body>
+</html>
